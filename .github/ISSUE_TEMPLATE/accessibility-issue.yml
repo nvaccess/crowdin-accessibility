@@ -1,12 +1,12 @@
 name: Crowdin Accessibility Issue
 description: Report an accessibility issue with Crowdin's web interface
-title: "[Accessibility]: "
-labels: ["accessibility", "bug"]
+type: "Bug"
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for taking the time to report an accessibility issue with Crowdin! Please provide as much detail as possible to help us understand and address the problem.
+        Thank you for taking the time to report an accessibility issue with Crowdin!
+        Please provide as much detail as possible to help us understand and address the problem.
 
   - type: textarea
     id: overview
@@ -24,7 +24,7 @@ body:
       description: Please provide detailed steps to reproduce the issue.
       placeholder: |
         1. Go to...
-        2. Click on...
+        2. Press downArrow
         3. Use screen reader to...
         4. See error...
     validations:
@@ -52,13 +52,12 @@ body:
     id: browser
     attributes:
       label: Web browser
+      multiple: true
       description: Which web browser are you using?
       options:
         - Chrome
         - Firefox
-        - Safari
         - Microsoft Edge
-        - Internet Explorer
         - Other (please specify in additional context)
     validations:
       required: true
@@ -66,54 +65,34 @@ body:
   - type: input
     id: browser-version
     attributes:
-      label: Browser version
-      description: What version of the browser are you using?
-      placeholder: "e.g., 118.0.5993.88"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: operating-system
-    attributes:
-      label: Operating System
-      description: Which operating system are you using?
-      options:
-        - Windows 11
-        - Windows 10
-        - Windows (other version)
-        - macOS
-        - Linux
-        - iOS
-        - Android
-        - Other (please specify in additional context)
+      label: Browser version(s)
+      description: What version(s) of the browser(s) are you using?
+      placeholder: "e.g. 118.0.5993.88"
     validations:
       required: true
 
   - type: dropdown
     id: assistive-technology
     attributes:
-      label: Screen reader or assistive technology
-      description: Which assistive technology are you using?
+      label: Screen reader(s) tested with
+      multiple: true
+      description: Which screen readers have you tested with?
       options:
         - NVDA
         - JAWS
-        - VoiceOver (macOS)
-        - VoiceOver (iOS)
-        - TalkBack (Android)
-        - Dragon NaturallySpeaking
         - Windows Narrator
-        - Orca
         - Other (please specify in additional context)
-        - None / Not applicable
     validations:
       required: true
 
   - type: input
     id: assistive-tech-version
     attributes:
-      label: Assistive technology version
-      description: What version of the assistive technology are you using? (if applicable)
-      placeholder: "e.g., NVDA 2023.3"
+      label: Screen reader version(s)
+      description: What version(s) of the screen reader(s) are you using? (if applicable)
+      placeholder: "e.g. NVDA 2023.3"
+    validations:
+      required: true
 
   - type: dropdown
     id: impact
@@ -126,13 +105,6 @@ body:
         - "Low (inefficient/bad experience)"
     validations:
       required: true
-
-  - type: input
-    id: crowdin-project
-    attributes:
-      label: Crowdin project/language
-      description: Which Crowdin project and language were you working on when you encountered this issue?
-      placeholder: "e.g., NVDA project, French translation"
 
   - type: textarea
     id: error-messages
